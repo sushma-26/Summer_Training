@@ -1,0 +1,29 @@
+Trie :
+w
+o o d
+r l d
+d
+  s
+mainly used for searching and pattern matching
+Rules Insertion:
+  1:goto root trie,check char is available
+    1.1)if not available ,add the char to dict and create a empty trie
+    1.2)if available ,goto reference trie. repeat the process
+  2.if there are not char(string completed) then make your current trie flag as 1
+  cn notebook(pic)
+
+
+char by char
+word
+world 
+apple
+{w:1}==w is letter and 1 is refernce for next node(trie)
+we go next word one by one and l is not there so create another ref for l at r and next path store d
+                         |{w:1,a:1}|F=0|  # if w not there then create this and create ref #if new word with another letter like apple add a in dict
+                       ref of w |{o:1}|f=0|
+                    ref of o |{r:1}|f=0| 
+                ref of r |{d:1,l:1}|f=1|      #if another word start with another letter than d(next letter) so add next letter in to this dict
+           r=d |{s:1}|f=1|           ref of l |{d:1}|f=0|===#world
+                    |{}|f=1|                    |{}|f=1|
+if word completed then create another node and keep flag is 1 word is ended   
+sometimes you have |{}|totalcount=0|prefixCount=0|if w repeats then prefixCount+=1         
